@@ -1,1 +1,57 @@
-tejgsii
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        decimal monto;
+        string ciudadDestino;
+        string tipoCliente;
+        int cantidadItems;
+
+        decimal costoEnvio = 0;
+        string categoriaDespacho = "";
+
+        Console.WriteLine("=== SISTEMA DE CLASIFICACIÓN DE PEDIDOS ===");
+
+        Console.Write("Ingrese el monto del pedido: ");
+        monto = Convert.ToDecimal(Console.ReadLine());
+
+        Console.Write("Ingrese la ciudad destino: ");
+        ciudadDestino = Console.ReadLine().ToLower();
+
+        Console.Write("Ingrese el tipo de cliente (nuevo/recurrente): ");
+        tipoCliente = Console.ReadLine().ToLower();
+
+        Console.Write("Ingrese la cantidad de ítems: ");
+        cantidadItems = Convert.ToInt32(Console.ReadLine());
+
+        if (monto >= 150000 && tipoCliente == "recurrente")
+        {
+            categoriaDespacho = "Envío Gratis";
+            costoEnvio = 0;
+        }
+        else if (cantidadItems >= 5 || monto >= 300000)
+        {
+            categoriaDespacho = "Envío Express";
+            costoEnvio = 20000;
+        }
+        else
+        {
+            categoriaDespacho = "Envío Estándar";
+            costoEnvio = 10000;
+        }
+
+        if (ciudadDestino == "exterior")
+        {
+            costoEnvio += 15000;
+        }
+
+        Console.WriteLine("\n=== RESULTADO DEL PEDIDO ===");
+        Console.WriteLine("Categoría de despacho: " + categoriaDespacho);
+        Console.WriteLine("Costo de envío: $" + costoEnvio);
+        Console.WriteLine("Gracias por su compra.");
+
+        Console.ReadKey();
+    }
+}
