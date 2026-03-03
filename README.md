@@ -1,6 +1,6 @@
 Integrantes 
 °Tony JuniorArnedo Alvarez
-°Keli alejandra Velez Cardona
+°Kelly alejandra Velez Cardona
 Entrega 1
 
 Curso logica de programacion
